@@ -1,11 +1,15 @@
 <template>
-  <Dashboard/>
-  <Table/>
+  <!-- <Dashboard/>
+  <Table/> -->
+  <nav>
+    <router-link to="/"></router-link>
+    <router-link to="table"></router-link>
+  </nav>
+  <router-view/>
 </template>
 
 <script setup>
-import Dashboard from './components/Dashboard.vue';
-import Table from './components/Table.vue';
+
 </script>
 
 <style>

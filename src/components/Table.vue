@@ -1,4 +1,36 @@
 <template>
+  <section class="w-full h-screen flex ">
+  <i 
+      class="fa-solid fa-bars text-2xl p-4 cursor-pointer block lg:!hidden"
+      @click="toggleSidebar"
+    ></i>
+
+    <!-- Sidebar -->
+    <aside
+      class="fixed top-0 left-0 h-screen w-64 bg-white shadow-lg p-4 flex flex-col 
+             transform transition-transform duration-300
+             lg:translate-x-0 lg:static lg:flex"
+      :class="isOpen ? 'translate-x-0' : '-translate-x-full'"
+    >
+      <!-- Close button -->
+      <i 
+        class="fa-solid fa-xmark text-2xl cursor-pointer  block lg:!hidden ml-auto"
+        @click="toggleSidebar"
+      ></i>
+      <div>
+        <h1 class="text-xl font-bold mb-6">Dashboard</h1>
+        <ul class="space-y-3 flex flex-col">
+          <router-link to="/" class="p-2 bg-blue-100 text-blue-700 rounded">Dashboard</router-link>
+         
+          <router-link to="/table" class="p-2 hover:bg-gray-200 rounded">Attendance</router-link>
+          
+          <li class="p-2 hover:bg-gray-200 rounded">Account</li>
+        </ul>
+      </div>
+      <button class="text-red-500 hover:underline">Log out</button>
+    </aside>
+
+
   <div class="p-6">
     <!-- Top bar with Check In button -->
     <div class="flex justify-end mb-4">
@@ -11,7 +43,7 @@
     </div>
 
     <!-- Users Table -->
-    <table class="w-full border border-gray-200">
+    <table class="w-[1000px] h-auto border border-gray-200">
       <thead class="bg-gray-100">
         <tr>
           <th class="p-2 border">ID</th>
@@ -21,21 +53,14 @@
           <th class="p-2 border">Status</th>
         </tr>
       </thead>
-      <tbody>
-        <tr v-for="user in users" :key="user.id" class="text-center">
-          <td class="p-2 border">{{ user.id }}</td>
-          <td class="p-2 border">{{ user.name }}</td>
-          <td class="p-2 border">{{ user.email }}</td>
-          <td class="p-2 border">
-            <span 
-              :class="user.role === 'Admin' ? 'bg-green-100 text-green-600 px-2 py-1 rounded' : 'bg-blue-100 text-blue-600 px-2 py-1 rounded'">
-              {{ user.role }}
-            </span>
-          </td>
-          <td class="p-2 border">
-            <button class="bg-blue-500 text-white px-2 py-1 rounded">Edit</button>
-            <button class="bg-red-500 text-white px-2 py-1 rounded ml-2" @click="deleteUser(user.id)">Delete</button>
-          </td>
+      <tbody class="">
+        <tr v-for="user in userStore.users" :key="user.id">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+            <td>{{ user.status }}</td>
+          
         </tr>
       </tbody>
     </table>
@@ -75,39 +100,44 @@
       </div>
     </div>
   </div>
+  </section>
 </template>
 
 <script setup>
+
 import { ref } from "vue";
 
 const showModal = ref(false);
 
-const users = ref([
-  { id: 1, name: "Alice Johnson", email: "alice@example.com", role: "Admin" },
-  { id: 2, name: "Bob Smith", email: "bob@example.com", role: "User" },
-  { id: 3, name: "Charlie Brown", email: "charlie@example.com", role: "User" },
-]);
 
-const newUser = ref({
-  name: "",
-  email: "",
-  role: "User",
-});
+import { useUserStore } from '../stores/userStore'
+const userstore = useUserStore()
 
 const addUser = () => {
-  users.value.push({
-    id: users.value.length + 1,
+  userStore.addUser({
+    id: userStore.users.length + 1,
     name: newUser.value.name,
     email: newUser.value.email,
     role: newUser.value.role,
-  });
-
+    status: "Checked In"
+  })
   // Reset form & close modal
-  newUser.value = { name: "", email: "", role: "User" };
-  showModal.value = false;
-};
+  newUser.value = { name: "", email: "", role: "User" }
+  showModal.value = false
+}
+
 
 const deleteUser = (id) => {
   users.value = users.value.filter((user) => user.id !== id);
 };
+
+
+const userStore = useUserStore()
+
 </script>
+<style scoped>
+th,td{
+  padding: 10px;
+}
+  
+</style>

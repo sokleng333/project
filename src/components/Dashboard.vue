@@ -20,9 +20,11 @@
       ></i>
       <div>
         <h1 class="text-xl font-bold mb-6">Dashboard</h1>
-        <ul class="space-y-3">
-          <li class="p-2 bg-blue-100 text-blue-700 rounded">Dashboard</li>
-          <li class="p-2 hover:bg-gray-200 rounded">Attendance</li>
+        <ul class="space-y-3 flex flex-col">
+          <router-link to="/" class="p-2 bg-blue-100 text-blue-700 rounded">Dashboard</router-link>
+         
+          <router-link to="/table" class="p-2 hover:bg-gray-200 rounded">Attendance</router-link>
+          
           <li class="p-2 hover:bg-gray-200 rounded">Account</li>
         </ul>
       </div>
@@ -74,7 +76,12 @@
         </div>
 
         <div class="flex md:absolute gap-6 justify-center lg:absolute lg:left-150 lg:top-76 md:left-85 sm:top-30 text-xs items-center md:top-76">
-          <button @click="handleCheckIn" class="bg-green-200 border-1 border-green-900 px-4 py-2 text-green-700 font-bold rounded lg:w-[180px] h-[40px] md:w-[150px] text-xs">Check In</button>
+            <button 
+        class="bg-green-200 border-1 text-green-800 px-4 py-2 rounded lg:w-[180px] h-[40px] md:w-[150px] text-xs font-bold"
+        @click="showModal = true"
+      >
+        Check In
+      </button>
           <button @click="handleCheckOut" class="bg-red-200 border-1 text-red-800 px-4 py-2 rounded lg:w-[180px] h-[40px] md:w-[150px] text-xs font-bold">Check Out</button>
           <button @click="showLeaveModal = true"
             class="bg-yellow-200 text-yellow-800 border-1 border-amber-500 px-4 py-2 rounded lg:w-[180px] h-[40px] md:w-[150px] text-xs sm:font-bold">
@@ -204,22 +211,91 @@
     </ul>
   </div>
    <h1>{{ message }}</h1>
+
+
+<!-- check in modal -->
+
+    <div 
+      v-if="showModal" 
+      class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+    >
+      <div class="bg-white p-6 rounded shadow-md w-[400px]">
+        <h2 class="text-xl font-bold mb-4">Check In</h2>
+
+        <form @submit.prevent="addUser">
+          <div class="mb-3">
+            <label class="block text-sm">Name</label>
+            <input v-model="newUser.name" type="text" class="w-full border px-2 py-1 rounded" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="block text-sm">Email</label>
+            <input v-model="newUser.email" type="email" class="w-full border px-2 py-1 rounded" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="block text-sm">Role</label>
+            <select v-model="newUser.role" class="w-full border px-2 py-1 rounded">
+              <option>User</option>
+              <option>Admin</option>
+            </select>
+          </div>
+
+          <div class="flex justify-end mt-4">
+            <button type="button" class="px-4 py-2 mr-2 bg-gray-400 text-white rounded" @click="showModal=false">Cancel</button>
+            <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
 </template>
-
 <script setup>
-
-
 import { ref, onMounted } from "vue";
+import { useUserStore } from "../stores/userStore";
 
+// === State ===
 const message = ref("");
 const attendance = ref([]);
 
-onMounted(async () => {
-  const res = await fetch("http://localhost:5000/api/hello");
-  const data = await res.json();
-  message.value = data.message;
+// Sidebar toggle
+const isOpen = ref(false);
+const toggleSidebar = () => {
+  isOpen.value = !isOpen.value;
+};
+
+// Leave modal
+const showLeaveModal = ref(false);
+const leaveForm = ref({
+  name: "",
+  start_date: "",
+  end_date: "",
+  reason: ""
+});
+const leaveRequests = ref([]);
+
+// Check-in modal
+const showModal = ref(false);
+const newUser = ref({
+  name: "",
+  email: "",
+  role: "User"
 });
 
+// Pinia store
+const userStore = useUserStore();
+
+// === Lifecycle ===
+onMounted(async () => {
+  try {
+    const res = await fetch("http://localhost:5000/api/hello");
+    const data = await res.json();
+    message.value = data.message;
+  } catch (err) {
+    console.error("Backend not reachable", err);
+  }
+});
+
+// === Attendance ===
 function handleCheckIn() {
   const record = { type: "Check In", time: new Date().toLocaleString() };
   attendance.value.push(record);
@@ -242,19 +318,7 @@ function handleCheckOut() {
   });
 }
 
-
-
-const showLeaveModal = ref(false);
-
-const leaveForm = ref({
-  name: "",
-  start_date: "",
-  end_date: "",
-  reason: ""
-});
-
-const leaveRequests = ref([]);
-
+// === Leave Form ===
 async function submitLeave() {
   const newLeave = {
     ...leaveForm.value,
@@ -262,20 +326,33 @@ async function submitLeave() {
     status: "Pending"
   };
 
-  // Push into Vue state
   leaveRequests.value.push(newLeave);
 
-  // Send to backend
   await fetch("http://localhost:5000/api/leave", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(newLeave)
+    body: JSON.stringify(newLeave),
   });
 
-  // Close modal & reset form
   showLeaveModal.value = false;
   leaveForm.value = { name: "", start_date: "", end_date: "", reason: "" };
 }
 
+// === User Handling (Pinia) ===
+const addUser = () => {
+  userStore.addUser({
+    id: userStore.users.length + 1,
+    name: newUser.value.name,
+    email: newUser.value.email,
+    role: newUser.value.role,
+    status: "Checked In"
+  });
 
+  newUser.value = { name: "", email: "", role: "User" };
+  showModal.value = false;
+};
+
+const deleteUser = (id) => {
+  userStore.users = userStore.users.filter((user) => user.id !== id);
+};
 </script>
