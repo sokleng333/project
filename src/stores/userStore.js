@@ -12,5 +12,11 @@ export const useUserStore = defineStore('user', () => {
     users.value.push(user)
   }
 
-  return { users, addUser }
+   function updateUserStatus(email, status) {
+    const user = users.value.find(u => u.email === email)
+    if (user) user.status = status
+  }
+
+
+  return { users, addUser, updateUserStatus}
 })

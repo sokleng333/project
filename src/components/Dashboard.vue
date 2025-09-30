@@ -82,7 +82,7 @@
       >
         Check In
       </button>
-          <button @click="handleCheckOut" class="bg-red-200 border-1 text-red-800 px-4 py-2 rounded lg:w-[180px] h-[40px] md:w-[150px] text-xs font-bold">Check Out</button>
+          <button  @click="showCheckOutModal = true" class="bg-red-200 border-1 text-red-800 px-4 py-2 rounded lg:w-[180px] h-[40px] md:w-[150px] text-xs font-bold">Check Out</button>
           <button @click="showLeaveModal = true"
             class="bg-yellow-200 text-yellow-800 border-1 border-amber-500 px-4 py-2 rounded lg:w-[180px] h-[40px] md:w-[150px] text-xs sm:font-bold">
             Leave Request
@@ -248,6 +248,26 @@
         </form>
       </div>
     </div>
+    <!-- check out modal -->
+
+    <div 
+  v-if="showCheckOutModal" 
+  class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+>
+  <div class="bg-white p-6 rounded shadow-md w-[400px]">
+    <h2 class="text-xl font-bold mb-4">Check Out</h2>
+    <form @submit.prevent="submitCheckOut">
+      <div class="mb-3">
+        <label class="block text-sm">Email</label>
+        <input v-model="checkOutUser.email" type="email" class="w-full border px-2 py-1 rounded" required />
+      </div>
+      <div class="flex justify-end mt-4">
+        <button type="button" class="px-4 py-2 mr-2 bg-gray-400 text-white rounded" @click="showCheckOutModal=false">Cancel</button>
+        <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
 </template>
 <script setup>
 import { ref, onMounted } from "vue";
@@ -280,6 +300,12 @@ const newUser = ref({
   email: "",
   role: "User"
 });
+// ...existing code...
+const showCheckOutModal = ref(false);
+const checkOutUser = ref({
+  email: ""
+});
+// ...existing code...
 
 // Pinia store
 const userStore = useUserStore();
@@ -307,7 +333,24 @@ function handleCheckIn() {
   });
 }
 
-function handleCheckOut() {
+// function handleCheckOut() {
+//   const record = { type: "Check Out", time: new Date().toLocaleString() };
+//   attendance.value.push(record);
+
+//   fetch("http://localhost:5000/api/checkout", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(record),
+//   });
+// }
+
+// ...existing code...
+// ...existing code...
+function submitCheckOut() {
+  // Find the user by email from the Check Out modal and update status
+  userStore.updateUserStatus(checkOutUser.value.email, "Checked Out");
+
+  // Optionally, add a record to attendance
   const record = { type: "Check Out", time: new Date().toLocaleString() };
   attendance.value.push(record);
 
@@ -316,7 +359,13 @@ function handleCheckOut() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(record),
   });
+
+  // Reset form & close modal
+  checkOutUser.value.email = "";
+  showCheckOutModal.value = false;
 }
+// ...existing code...
+// ...existing code...
 
 // === Leave Form ===
 async function submitLeave() {
