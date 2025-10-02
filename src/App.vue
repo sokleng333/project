@@ -1,10 +1,18 @@
 <template>
   <!-- <Dashboard/>
   <Table/> -->
-  <nav>
+  <!-- <nav>
     <router-link to="/"></router-link>
-    <router-link to="table"></router-link>
-  </nav>
+    <router-link to="/table"></router-link>
+  </nav> -->
+
+    <!-- <router-link to="/Feature"></router-link>
+    <router-link to="/Aboutus">
+
+    </router-link> -->
+    <!-- <router-link to="/contact"></router-link> -->
+      <router-link to="/"></router-link>
+      <router-link to="/table"></router-link>
   <router-view/>
 </template>
 
