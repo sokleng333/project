@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[linear-gradient(to_right,#2156B2_0%,#043873_50%)] h-screen flex justify-between items-center px-20">
+  <section class="bg-[linear-gradient(to_right,#977DFF,#0033FF,#0600AB)] h-screen flex justify-between items-center px-20">
     <main class="">
      
       <h1 class="text-2xl font-semibold text-white font-montserrate">
@@ -47,7 +47,7 @@
     </main>
     <img src="../../assets/IMG_0367-removebg-preview__2_-removebg-preview.png" alt="" width="500" height="300">
   </section>
-  <section class="bg-[linear-gradient(to_right,#2156B2_0%,#043873_50%)] h-[80vh] flex justify-center items-center flex-col ">
+  <section class="bg-[linear-gradient(to_right,#977DFF,#0033FF,#0600AB)] h-[80vh] flex justify-center items-center flex-col ">
       <h1 class="text-4xl font-semibold text-white font-montserrate w-[60%] text-left">Manage Your Workforce Anywhere, Anytime</h1>
       <p class="text-base font-normal font-montserrate text-white w-[60%] text-left">Easily track attendance, manage shifts, and oversee employee performance from any device. Whether you're in the office or working remotely, our platform keeps you connected with real-time updates and cloud-based access</p>
 
@@ -68,20 +68,7 @@
     </main>
     <img src="../../assets/tim2.PNG" alt="" width="500" height="300">
   </section>
-  <section class=" bg-[linear-gradient(to_right,#2156B2_0%,#043873_50%)] h-[40vh] ">
-    <h1 class="text-4xl mt-3 font-semibold text-white font-montserrate text-center">TECH STACK</h1>
-<div class="flex justify-evenly mt-6">    
-
-      <img src="../../assets/javascript-picture-8.png" alt="" width="50" height="50">
-      <img src="../../assets/html-image.png" alt="" width="50" height="50">
-      
-      <img src="../../assets/Tailwind_CSS_logo.png" alt="" width="200" height="auto" >
-      <img src="../../assets/react-logo.png" alt="" width="130" height="50">
-
- </div>
-   
-
-  </section>
+  
   <h1 class="text-center text-4xl text-black font-montserrate font-bold">What Our Clients Say</h1>
   <section class="mt-10 flex justify-center items-center gap-2 h-auto">
 
@@ -101,31 +88,31 @@
 
     </div>
 
-    <div class="card w-[300px] h-[300px] shadow-sm bg-[#043873] text-white p-3">
+    <div class="card w-[300px] h-[300px] shadow-sm bg-[#0d5db9] text-white p-3">
       <div>
         <img src="../../assets/qoute02.png" alt="" width="60" height="60">
         <p class="mt-3">Checkify is designed as a collaboration tool for businesses that is a full project management solution.</p>
       </div>
       <hr class="mt-3">
       <div class="flex gap-6 mt-10">
-        <img src="../../assets/Screenshot 2025-09-01 105956.png" alt="" class="rounded-full" width="60" height="auto">
+        <img src="../../assets/pf3.jpg" alt="" class="rounded-full" width="60" height="auto">
         <div class="flex flex-col">
-          <h1 class="font-montserrate font-semibold  text-[#0ff144]">Mey Panhawath</h1>
+          <h1 class="font-montserrate font-semibold  text-[#0ff144]">Mr.John Doe</h1>
           <p class="text-[12px]">Head of Talent Acquisition, North America</p>
         </div>
       </div>
 
     </div>
-    <div class="card w-[300px] h-[300px] shadow-sm bg-[#043873]  text-white p-3">
+    <div class="card w-[300px] h-[300px] shadow-sm bg-[#0d5db9]  text-white p-3">
       <div>
         <img src="../../assets/qoute02.png" alt="" width="60" height="60">
         <p class="mt-3">Checkify is designed as a collaboration tool for businesses that is a full project management solution.</p>
       </div>
       <hr class="mt-3">
       <div class="flex gap-6 mt-10">
-        <img src="../../assets/Screenshot 2025-09-01 110127.png" alt="" class="rounded-full" width="60" height="auto" />
+        <img src="../../assets/profile1.jpg" alt="" class="rounded-full" width="60" height="auto" />
         <div class="flex flex-col">
-          <h1 class="font-montserrate font-semibold text-[#0ff144]">Sara Manith</h1>
+          <h1 class="font-montserrate font-semibold text-[#0ff144]">Mr. Smith</h1>
           <p class="text-[12px]">Head of Talent Acquisition, North America</p>
         </div>
       </div>

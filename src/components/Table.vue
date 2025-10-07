@@ -20,11 +20,11 @@
       <div>
         <h1 class="text-xl font-bold mb-6">Dashboard</h1>
         <ul class="space-y-3 flex flex-col">
-          <router-link to="/" class="p-2 bg-blue-100 text-blue-700 rounded">Dashboard</router-link>
+          <router-link to="/dashboard" class="p-2 bg-blue-100 text-blue-700 rounded">Dashboard</router-link>
          
           <router-link to="/table" class="p-2 hover:bg-gray-200 rounded">Attendance</router-link>
-          
-          <li class="p-2 hover:bg-gray-200 rounded">Account</li>
+
+          <router-link to="/account" class="p-2 hover:bg-gray-200 rounded">employee</router-link>
         </ul>
       </div>
       <button class="text-red-500 hover:underline">Log out</button>

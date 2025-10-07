@@ -1,5 +1,5 @@
 <template>
-     <section class="bg-[linear-gradient(to_right,#2156B2_0%,#043873_50%)] h-screen flex justify-between items-center px-20">
+     <section class="bg-[linear-gradient(to_right,#977DFF,#0033FF,#0600AB)] h-screen flex justify-between items-center px-20">
     <main class="">
      
       <h1 class="text-4xl mb-3 font-semibold text-white font-montserrate">

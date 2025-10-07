@@ -1,6 +1,6 @@
 <template>
-  <section class="h-screen w-full bg-[linear-gradient(to_right,#2156B2_0%,#043873_50%)] ">
-    <h1 class="text-center font-bold text-3xl text-white pt-20">Frequently asked questions</h1>
+  <section class="h-screen w-full bg-[linear-gradient(to_right,#977DFF,#0033FF,#0600AB)] ">
+    <h1 class="text-center font-bold text-3xl text-white pt-20">Contact Us Here When You Need Help</h1>
         <section class="grid grid-cols-[400px_600px] place-content-center items-center gap-10 mt-20 ml-10 ">
             <div class="flex flex-col">
                 <div class="flex flex-col items-center mb-5">

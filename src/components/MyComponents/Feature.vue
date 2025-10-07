@@ -1,12 +1,11 @@
 
 <template>
-    <section class="bg-[linear-gradient(to_right,#2156B2_0%,#043873_50%)] h-screen flex justify-between items-center px-20">
+    <section class="bg-[linear-gradient(to_right,#977DFF,#0033FF,#0600AB)] h-screen flex justify-between items-center px-20">
     <main class="">
      
       <h1 class="text-4xl mb-3 font-semibold text-white font-montserrate">
         Modernize Your Workplace with an Automated Attendance System
-       
-       
+      
       </h1>
       
       <p class="text-base font-normal font-montserrate text-white">
@@ -14,7 +13,7 @@
       </p>
       
     </main>
-    <img src="../../assets/IMG_0387-removebg-preview.png" alt="" width="500" height="300">
+    <img src="../../assets/banner-Benefits-of-online-attendance-app.webp" alt="" width="500" height="300">
   </section>
 
   <section class=" h-[90vh] flex justify-between items-center px-20">
@@ -33,7 +32,7 @@
     <img src="../../assets/table.png" alt="" width="500" height="300">
   </section>
 
-  <section class=" h-[90vh] bg-[linear-gradient(to_right,#2156B2_0%,#043873_50%)] flex justify-between items-center px-20">
+  <section class=" h-[90vh] bg-[linear-gradient(to_right,#977DFF,#0033FF,#0600AB)] flex justify-between items-center px-20">
     <img src="../../assets/IMG_0367-removebg-preview__2_-removebg-preview.png" alt="" width="500" height="300">
     <main class="">
      

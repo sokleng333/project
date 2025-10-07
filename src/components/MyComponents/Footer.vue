@@ -1,6 +1,6 @@
 <template>
-   <footer class="flex items-center justify-evenly bg-[linear-gradient(to_right,#2156B2_0%,#043873_50%)] mt-20 h-[60vh]">
-    <img src="../../assets/logo-dark-v2.png" alt="" class="w-50 h-32 text-blue-500">
+   <footer class="flex items-center justify-evenly bg-[linear-gradient(to_right,#977DFF,#0033FF,#0600AB)] mt-20 h-[60vh]">
+    <img src="../../assets/logo.png" alt="" class="w-32 h-40 text-blue-500">
 <ul>
     <li><a href="" class="text-white font-bold">Feature</a></li>
     <li><a href="" class="text-white font-normal text-sm">Employee</a></li>
