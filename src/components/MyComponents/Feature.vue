@@ -4,12 +4,12 @@
     <main class="">
      
       <h1 class="text-4xl mb-3 font-semibold text-white font-montserrate">
-        Modernize Your Workplace with an Automated Attendance System
+       Upgrade Your Workplace Efficiency with a Smart Attendance System
       
       </h1>
       
       <p class="text-base font-normal font-montserrate text-white">
-        Managing employee attendance manually is time-consuming, error-prone, and inefficient. Upgrade to an automated Employee Attendance System that simplifies tracking, enhances accuracy, and boosts productivity. 
+        Manually tracking employee attendance is inefficient, prone to mistakes, and takes up valuable time. Switch to an automated Employee Attendance System to streamline monitoring, improve accuracy, and increase overall productivity.
       </p>
       
     </main>

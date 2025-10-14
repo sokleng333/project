@@ -10,6 +10,10 @@ export const useUserStore = defineStore('user', () => {
     { id: 2, name: "John Smith", email: "Johnsmith127@gmail.com", role: "User", status: "Checked Out" },
     { id: 3, name: "Charlie Brown", email: "charlie128@gmail.com", role: "User", status: "On Leave" }
   ])
+  const leaves = ref([
+   
+
+  ])
 
   function addUser(user) {
     users.value.push(user)
@@ -19,7 +23,11 @@ export const useUserStore = defineStore('user', () => {
     const user = users.value.find(u => u.email === email)
     if (user) user.status = status
   }
+  function addLeave(leave) {
+    console.log('[store] addLeave', leave)
+    leaves.value.push(leave)
+  }                       
 
 
-  return { users, addUser, updateUserStatus}
+  return { users, addUser, updateUserStatus,leaves,addLeave}
 })

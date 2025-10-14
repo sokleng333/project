@@ -24,7 +24,7 @@
          
           <router-link to="/table" class="p-2 hover:bg-gray-200 rounded">Attendance</router-link>
 
-          <router-link to="/account" class="p-2 hover:bg-gray-200 rounded">employee</router-link>
+          <router-link to="/leave" class="p-2 hover:bg-gray-200 rounded">Leave Request</router-link>
         </ul>
       </div>
       <button class="text-red-500 hover:underline">Log out</button>
@@ -33,13 +33,15 @@
 
   <div class="p-6">
     <!-- Top bar with Check In button -->
-    <div class="flex justify-end mb-4">
-      <button 
+    <div class="flex justify-between mb-4">
+      <h1 class=" text-2xl font-bold">Attendance</h1>
+      <input type="text" placeholder="search" class="border-2 p-2 border-blue-800 rounded">
+      <!-- <button 
         class="bg-green-500 text-white px-4 py-2 rounded"
         @click="showModal = true"
       >
         Check In
-      </button>
+      </button> -->
     </div>
 
     <!-- Users Table -->

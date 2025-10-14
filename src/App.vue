@@ -12,6 +12,7 @@
      <router-link to="/contact"></router-link> 
       <router-link to="/dashboard"></router-link>
       <router-link to="/table"></router-link>
+      <router-link to="/leave"></router-link>
       <!-- <Login/> -->
   <router-view/>
 </template>

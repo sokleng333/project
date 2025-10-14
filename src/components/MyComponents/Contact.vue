@@ -19,15 +19,9 @@
 
     </div>
     <div class="flex flex-col ">
-        <div class="flex ">
-        <div class="bg-white ​w-[300px] mt-2 p-2 ">  What is the Employee Management System?<i class="fa-solid fa-caret-down "></i></div>
-        </div>
-<div class="flex ">
-        <div class="bg-white ​w-[300px] mt-2 p-2 ">  What is the Employee Management System?<i class="fa-solid fa-caret-down "></i></div>
-        </div>
-       <div class="flex ">
-        <div class="bg-white ​w-[300px] mt-2 p-2 ">  What is the Employee Management System?<i class="fa-solid fa-caret-down "></i></div>
-        </div>
+      <p class="text-2xl  font-montserrate text-white">Want to learn how our Smart Attendance system works?
+Reach out to us for product details, system setup guidance, or technical support. We’re here to help you automate attendance tracking efficiently and accurately.</p>
+    
     </div>
          </section>
 

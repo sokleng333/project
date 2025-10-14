@@ -12,7 +12,9 @@
       <p class="text-base font-normal font-montserrate text-white">
         Manage your employees' attendance with fast and reliable process. Secure and highly customizable. Rise attendance is the best partner for you if you want to scale your workforce management efficiency worldwide.
       </p>
+      <router-link to="/login">
       <button class="bg-white text-[#043873] font-montserrate font-semibold px-6 py-3 rounded-lg mt-5">Get Started</button>
+      </router-link>
     </main>
     <img src="../../assets/feature-img(2).png" alt="" width="500" height="300">
   </section>

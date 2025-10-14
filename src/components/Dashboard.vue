@@ -2,7 +2,7 @@
   <div class="flex h-auto bg-gray-100">
     <!-- Burger Menu (ONLY on sm & md, hidden on lg) -->
     <i 
-      class="fa-solid fa-bars text-2xl p-4 cursor-pointer block lg:!hidden"
+      class="fa-solid fa-bars text-black text-2xl p-4 cursor-pointer block md:block lg:hidden"
       @click="toggleSidebar"
     ></i>
 
@@ -25,7 +25,7 @@
          
           <router-link to="/table" class="p-2 hover:bg-gray-200 rounded">Attendance</router-link>
 
-          <router-link to="/account" class="p-2 hover:bg-gray-200 rounded">employee</router-link>
+          <router-link to="/leave" class="p-2 hover:bg-gray-200 rounded">Leave Request</router-link>
         </ul>
       </div>
       <button class="text-red-500 hover:underline">Log out</button>
@@ -45,9 +45,9 @@
               <p class="text-gray-500">Tuesday:</p>
               <p>29th August 2025</p>
             </div>
-            <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded">
-              View Attendance
-            </button>
+            <router-link to="/table">
+              <button class="mt-4 bg-blue-600 text-white px-4 py-2 rounded">View Attendance</button>
+            </router-link>
           </div>
         </div>
 
@@ -201,19 +201,7 @@
     </ul>
   </div>
 
-  <!-- Leave Requests -->
-  <div class="bg-white p-4 rounded shadow mt-6">
-    <h3 class="font-bold mb-2">Leave Requests</h3>
-    <ul>
-      <li v-for="leave in leaveRequests" :key="leave.id">
-       {{ leave.name }}: {{ leave.start_date }} - {{ leave.end_date }}: {{ leave.reason }}
-      </li>
-    </ul>
-  </div>
-   <h1>{{ message }}</h1>
 
-
-<!-- check in modal -->
 
     <div 
       v-if="showModal" 
@@ -273,6 +261,7 @@
 import { ref, onMounted } from "vue";
 import { useUserStore } from "../stores/userStore";
 
+const userStore = useUserStore()
 // === State ===
 const message = ref("");
 const attendance = ref([]);
@@ -291,7 +280,7 @@ const leaveForm = ref({
   end_date: "",
   reason: ""
 });
-const leaveRequests = ref([]);
+// const leaveRequests = ref([]);
 
 // Check-in modal
 const showModal = ref(false);
@@ -305,12 +294,7 @@ const showCheckOutModal = ref(false);
 const checkOutUser = ref({
   email: ""
 });
-// ...existing code...
 
-// Pinia store
-const userStore = useUserStore();
-
-// === Lifecycle ===
 onMounted(async () => {
   try {
     const res = await fetch("http://localhost:5000/api/hello");
@@ -333,19 +317,7 @@ function handleCheckIn() {
   });
 }
 
-// function handleCheckOut() {
-//   const record = { type: "Check Out", time: new Date().toLocaleString() };
-//   attendance.value.push(record);
 
-//   fetch("http://localhost:5000/api/checkout", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify(record),
-//   });
-// }
-
-// ...existing code...
-// ...existing code...
 function submitCheckOut() {
   // Find the user by email from the Check Out modal and update status
   userStore.updateUserStatus(checkOutUser.value.email, "Checked Out");
@@ -364,29 +336,48 @@ function submitCheckOut() {
   checkOutUser.value.email = "";
   showCheckOutModal.value = false;
 }
-// ...existing code...
+
+
 // ...existing code...
 
 // === Leave Form ===
+// async function submitLeave() {
+//   const newLeave = {
+//     ...leaveForm.value,
+//     submitted_at: new Date().toLocaleString(),
+//     status: "Pending"
+//   };
+
+//   leaveRequests.value.push(newLeave);
+
+//   await fetch("http://localhost:5000/api/leave", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(newLeave),
+//   });
+
+//   showLeaveModal.value = false;
+//   leaveForm.value = { name: "", start_date: "", end_date: "", reason: "" };
+// }
+// end of leave form
+
 async function submitLeave() {
   const newLeave = {
-    ...leaveForm.value,
-    submitted_at: new Date().toLocaleString(),
-    status: "Pending"
-  };
+    name: leaveForm.value.name,
+    start_date: leaveForm.value.start_date,
+    end_date: leaveForm.value.end_date,
+    reason: leaveForm.value.reason,
+    submitted_at: new Date().toISOString(),
+  }
+  
+  console.log('[Dashboard] submitLeave -> newLeave:', newLeave)
+  userStore.addLeave(newLeave)
+  console.log('[Dashboard] after addLeave userStore.leaves:', userStore.leaves)
 
-  leaveRequests.value.push(newLeave);
-
-  await fetch("http://localhost:5000/api/leave", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(newLeave),
-  });
-
-  showLeaveModal.value = false;
-  leaveForm.value = { name: "", start_date: "", end_date: "", reason: "" };
+  // ... backend POST omitted for brevity ...
+  showLeaveModal.value = false
+  leaveForm.value = { name: "", start_date: "", end_date: "", reason: "" }
 }
-
 // === User Handling (Pinia) ===
 const addUser = () => {
   userStore.addUser({

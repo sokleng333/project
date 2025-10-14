@@ -6,6 +6,7 @@ import FeaturePage from '../components/Pages/FeaturePage.vue'
 import LandingPage from '../components/Pages/LandingPage.vue'
 import AboutUs from '../components/Pages/AboutUs.vue'
 import ContactPage from "../components/Pages/ContactPage.vue";
+import LeaveRequest from '../components/LeaveRequest.vue'
 
 const routes=[
     {
@@ -47,6 +48,12 @@ const routes=[
         path:'/login',
         name:'login',
         component:Login,
+    },
+    {
+        path:"/leave",
+        name:"leave-request",
+        component:LeaveRequest,
+
     }
 ]
 const router=createRouter({
