@@ -192,14 +192,14 @@
   </div>
 
   <!-- Attendance Records -->
-  <div class="bg-white p-4 rounded shadow mt-6">
+  <!-- <div class="bg-white p-4 rounded shadow mt-6">
     <h3 class="font-bold mb-2">Attendance Records</h3>
     <ul>
       <li v-for="record in attendance" :key="record.id">
         {{ record.type }} at {{ record.time }}
       </li>
     </ul>
-  </div>
+  </div> -->
 
 
 

@@ -77,7 +77,7 @@
     <div class="card w-[300px] h-[300px] shadow-sm bg-white  p-3">
       <div>
         <img src="../../assets/quote01.png" alt="" width="60" height="60">
-        <p class="mt-3">Checkify is designed as a collaboration tool for businesses that is a full project management solution.</p>
+        <p class="mt-3">Smart Attendance is designed as a collaboration tool for businesses that is a full project management solution.</p>
       </div>
       <hr class="mt-3">
       <div class="flex gap-6 mt-10">
@@ -93,7 +93,7 @@
     <div class="card w-[300px] h-[300px] shadow-sm bg-[#0d5db9] text-white p-3">
       <div>
         <img src="../../assets/qoute02.png" alt="" width="60" height="60">
-        <p class="mt-3">Checkify is designed as a collaboration tool for businesses that is a full project management solution.</p>
+        <p class="mt-3">Smart attendance is designed as a collaboration tool for businesses that is a full project management solution.</p>
       </div>
       <hr class="mt-3">
       <div class="flex gap-6 mt-10">
@@ -108,7 +108,7 @@
     <div class="card w-[300px] h-[300px] shadow-sm bg-[#0d5db9]  text-white p-3">
       <div>
         <img src="../../assets/qoute02.png" alt="" width="60" height="60">
-        <p class="mt-3">Checkify is designed as a collaboration tool for businesses that is a full project management solution.</p>
+        <p class="mt-3">Smart Attendance is designed as a collaboration tool for businesses that is a full project management solution.</p>
       </div>
       <hr class="mt-3">
       <div class="flex gap-6 mt-10">

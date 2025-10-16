@@ -60,7 +60,7 @@ const router = useRouter()
 function handleLogin() {
   error.value = ''
   // simple frontend check (for demo). Replace with API call for real auth.
-  if (username.value === 'employee' && password.value === 'emp123') {
+  if (username.value === 'Admin' && password.value === 'admin135') {
     localStorage.setItem('isLoggedIn', 'true')
     router.push('/dashboard')
   } else {

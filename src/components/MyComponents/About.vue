@@ -76,13 +76,11 @@
                 <img class="w-12 h-12 rounded-full mr-3" src="https://randomuser.me/api/portraits/men/22.jpg" alt="Profile Image">
                 <div>
                     <h2 class="text-lg font-semibold">John Doe</h2>
-                    <p class="text-gray-500 text-sm">Published on June 17, 2023</p>
+                    <p class="text-gray-500 text-sm">Published on June 17, 2025</p>
                 </div>
             </div>
             <p class="text-gray-700 mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac orci
-                fermentum, viverra erat at, accumsan elit. Proin ultrices auctor nisl, eu facilisis lectus condimentum
-                eu.
+              John Doe have shared positive feedback about the employee’s professionalism, communication skills, and dedication to providing excellent service.
             </p>
             <div class="flex justify-end">
                 <a href="#" class="text-blue-500 font-semibold">Read More</a>
@@ -94,11 +92,12 @@
                 <img class="w-12 h-12 rounded-full mr-3" src="https://randomuser.me/api/portraits/women/45.jpg" alt="Profile Image">
                 <div>
                     <h2 class="text-lg font-semibold">Jane Smith</h2>
-                    <p class="text-gray-500 text-sm">Published on June 15, 2023</p>
+                    <p class="text-gray-500 text-sm">Published on June 15, 2025</p>
                 </div>
             </div>
-            <p class="text-gray-700 mb-4">Ut tincidunt arcu ut mauris gravida, ac volutpat justo tristique. Phasellus ut
-                pharetra velit. Nullam vel justo id felis tincidunt venenatis. Proin id ligula ut dui rhoncus feugiat.
+            <p class="text-gray-700 mb-4">
+              Jane Smith have shared positive feedback about the employee’s professionalism, communication skills, and dedication to providing excellent service.
+
             </p>
             <div class="flex justify-end">
                 <a href="#" class="text-blue-500 font-semibold">Read More</a>
@@ -116,14 +115,12 @@
             <div class="flex items-center mb-4">
                 <img class="w-12 h-12 rounded-full mr-3" src="https://randomuser.me/api/portraits/men/22.jpg" alt="Profile Image">
                 <div>
-                    <h2 class="text-lg font-semibold">John Doe</h2>
-                    <p class="text-gray-500 text-sm">Published on June 17, 2023</p>
+                    <h2 class="text-lg font-semibold">Jimin London</h2>
+                    <p class="text-gray-500 text-sm">Published on June 17, 2025</p>
                 </div>
             </div>
             <p class="text-gray-700 mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac orci
-                fermentum, viverra erat at, accumsan elit. Proin ultrices auctor nisl, eu facilisis lectus condimentum
-                eu.
+               Jimin Londonclients also appreciated the employee’s attention to detail and ability to handle requests efficiently, even under pressure.
             </p>
             <div class="flex justify-end">
                 <a href="#" class="text-blue-500 font-semibold">Read More</a>
@@ -134,12 +131,12 @@
             <div class="flex items-center mb-4">
                 <img class="w-12 h-12 rounded-full mr-3" src="https://randomuser.me/api/portraits/women/45.jpg" alt="Profile Image">
                 <div>
-                    <h2 class="text-lg font-semibold">Jane Smith</h2>
-                    <p class="text-gray-500 text-sm">Published on June 15, 2023</p>
+                    <h2 class="text-lg font-semibold">kevin</h2>
+                    <p class="text-gray-500 text-sm">Published on June 15, 2025</p>
                 </div>
             </div>
-            <p class="text-gray-700 mb-4">Ut tincidunt arcu ut mauris gravida, ac volutpat justo tristique. Phasellus ut
-                pharetra velit. Nullam vel justo id felis tincidunt venenatis. Proin id ligula ut dui rhoncus feugiat.
+            <p class="text-gray-700 mb-4">
+              employee consistently goes above and beyond to meet client expectations, demonstrating strong problem-solving and teamwork skills.
             </p>
             <div class="flex justify-end">
                 <a href="#" class="text-blue-500 font-semibold">Read More</a>

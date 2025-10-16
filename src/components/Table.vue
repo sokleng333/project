@@ -35,7 +35,12 @@
     <!-- Top bar with Check In button -->
     <div class="flex justify-between mb-4">
       <h1 class=" text-2xl font-bold">Attendance</h1>
-      <input type="text" placeholder="search" class="border-2 p-2 border-blue-800 rounded">
+      <input 
+  v-model="searchQuery" 
+  type="text" 
+  placeholder="Search by name or ID..." 
+  class="border-2 p-2 border-blue-800 rounded"
+/>
       <!-- <button 
         class="bg-green-500 text-white px-4 py-2 rounded"
         @click="showModal = true"
@@ -56,7 +61,7 @@
         </tr>
       </thead>
       <tbody class="">
-        <tr v-for="user in userStore.users" :key="user.id">
+        <tr v-for="user in filteredUsers" :key="user.id">
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
@@ -108,6 +113,9 @@
 <script setup>
 
 import { ref } from "vue";
+import { computed } from 'vue'  // ← add this only if not already imported
+
+const searchQuery = ref("")  
 
 const showModal = ref(false);
 
@@ -117,7 +125,8 @@ const userstore = useUserStore()
 
 const addUser = () => {
   userStore.addUser({
-    id: userStore.users.length + 1,
+    id: userStore.users.length ? Math.max(...userStore.users.map(u => u.id)) + 1 : 1,
+
     name: newUser.value.name,
     email: newUser.value.email,
     role: newUser.value.role,
@@ -136,6 +145,15 @@ const deleteUser = (id) => {
 
 const userStore = useUserStore()
 
+//search
+const filteredUsers = computed(() => {
+  const q = searchQuery.value.toLowerCase().trim()
+  if (!q) return userStore.users
+  return userStore.users.filter(user =>
+    user.name.toLowerCase().includes(q) ||
+    user.id.toString().includes(q)
+  )
+})
 </script>
 <style scoped>
 th,td{
