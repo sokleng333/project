@@ -28,7 +28,8 @@
           <router-link to="/leave" class="p-2 hover:bg-gray-200 rounded">Leave Request</router-link>
         </ul>
       </div>
-      <button class="text-red-500 hover:underline">Log out</button>
+      <router-link to="/log in"><button class="text-red-500 hover:underline">Log out</button></router-link>
+    
     </aside>
 
     <!-- Main Content -->

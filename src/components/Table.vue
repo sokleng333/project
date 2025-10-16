@@ -27,7 +27,8 @@
           <router-link to="/leave" class="p-2 hover:bg-gray-200 rounded">Leave Request</router-link>
         </ul>
       </div>
-      <button class="text-red-500 hover:underline">Log out</button>
+      <router-link to="/login"><button class="text-red-500 hover:underline">Log out</button></router-link>
+    
     </aside>
 
 
@@ -41,12 +42,7 @@
   placeholder="Search by name or ID..." 
   class="border-2 p-2 border-blue-800 rounded"
 />
-      <!-- <button 
-        class="bg-green-500 text-white px-4 py-2 rounded"
-        @click="showModal = true"
-      >
-        Check In
-      </button> -->
+   
     </div>
 
     <!-- Users Table -->

@@ -7,6 +7,7 @@ import LandingPage from '../components/Pages/LandingPage.vue'
 import AboutUs from '../components/Pages/AboutUs.vue'
 import ContactPage from "../components/Pages/ContactPage.vue";
 import LeaveRequest from '../components/LeaveRequest.vue'
+import Employee from '../components/Employee.vue'
 
 const routes=[
     {
@@ -54,6 +55,12 @@ const routes=[
         name:"leave-request",
         component:LeaveRequest,
 
+    },
+    {
+        path:"/empdashboard",
+        name:"empdashboard",
+        component:Employee
+
     }
 ]
 const router=createRouter({
@@ -62,14 +69,27 @@ const router=createRouter({
 })
 
 // Navigation guard
+// router.beforeEach((to, from, next) => {
+//   const isLoggedIn = localStorage.getItem('isLoggedIn');
+//   if (to.path === '/dashboard' && !isLoggedIn) {
+//     next('/login');
+//   } else {
+//     next();
+//   }
+// });
+// Navigation guard
 router.beforeEach((to, from, next) => {
-  const isLoggedIn = localStorage.getItem('isLoggedIn');
-  if (to.path === '/dashboard' && !isLoggedIn) {
-    next('/login');
+  const isLoggedIn = localStorage.getItem('isLoggedIn')
+
+  // list of protected routes
+  const protectedRoutes = ['/dashboard', '/empdashboard']
+
+  if (protectedRoutes.includes(to.path) && !isLoggedIn) {
+    next('/login')
   } else {
-    next();
+    next()
   }
-});
+})
 
 
 

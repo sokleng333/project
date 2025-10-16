@@ -63,7 +63,13 @@ function handleLogin() {
   if (username.value === 'Admin' && password.value === 'admin135') {
     localStorage.setItem('isLoggedIn', 'true')
     router.push('/dashboard')
-  } else {
+  } 
+  else if (username.value === 'Employee' && password.value === 'emp135') {
+    localStorage.setItem('isLoggedIn', 'true')
+    router.push('/empdashboard')
+ 
+  }
+ else {
     error.value = 'Invalid username or password'
   }
 }
