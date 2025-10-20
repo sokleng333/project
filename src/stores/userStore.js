@@ -4,11 +4,11 @@ import { ref } from 'vue'
 export const useUserStore = defineStore('user', () => {
   const users = ref([
     { id: 1, name: "Alice Johnson", email: "alice123@gmail.com", role: "Admin", status: "Checked In" },
-    { id: 2, name: "Bob Smith", email: "bob124@gmail.com", role: "User", status: "Checked Out" },
-    { id: 3, name: "Chea Phearum", email: "cheaphearum125@gmail.com", role: "User", status: "On Leave" },
-    { id: 4, name: "Alice Johnson", email: "alice126@gmail.com", role: "Admin", status: "Checked In" },
-    { id: 5, name: "John Smith", email: "Johnsmith127@gmail.com", role: "User", status: "Checked Out" },
-    { id: 6, name: "Charlie Brown", email: "charlie128@gmail.com", role: "User", status: "On Leave" }
+    { id: 2, name: "Bob Smith", email: "bob124@gmail.com", role: "Employee", status: "Checked Out" },
+    { id: 3, name: "Chea Phearum", email: "cheaphearum125@gmail.com", role: "Employee", status: "Check in" },
+    { id: 4, name: "Alice Johnson", email: "alice126@gmail.com", role: "Employee", status: "Checked In" },
+    { id: 5, name: "John Smith", email: "Johnsmith127@gmail.com", role: "Employee", status: "Checked Out" },
+    { id: 6, name: "Charlie Brown", email: "charlie128@gmail.com", role: "Employee", status: "Check out" }
   ])
   const leaves = ref([
     {

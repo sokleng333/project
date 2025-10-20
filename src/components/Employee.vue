@@ -22,7 +22,7 @@
         <ul class="space-y-3 flex flex-col">
           <router-link to="/dashboard" class="p-2 bg-blue-100 text-blue-700 rounded">Employee</router-link>
          
-          <router-link to="/Account" class="p-2 hover:bg-gray-200 rounded">Account</router-link>
+          <router-link to="/account" class="p-2 hover:bg-gray-200 rounded">Account</router-link>
 
           <router-link to="/Task" class="p-2 hover:bg-gray-200 rounded">Task</router-link>
         </ul>
@@ -30,14 +30,14 @@
       <router-link to="/login"><button class="text-red-500 hover:underline">Log out</button></router-link>
       
     </aside>  
-    <section class="m-2">
+    <section class=" bg-gray-100 w-full p-2">
         <h1 class="text-3xl font-bold ">Good Morning <span class="text-blue-500">Monika!</span></h1>
-        <div class="w-[810px] rounded mt-2 shadow-sm bg-white h-[120px] p-3">
+        <div class="w-[815px] rounded mt-2 shadow-sm bg-white h-[120px] p-3">
             <h1 class="font-bold">Today Task</h1>
             <p class="text-gray-400">Check out your task here</p>
-            <button class="bg-blue-500 p-2 rounded text-white mt-1">View Task</button>
+            <button class="bg-blue-500 p-1 rounded text-white mt-2 text-sm">View Task</button>
         </div>
-        <div class="flex justify-between">
+        <div class="flex justify-between w-[78%]">
          <div class="bg-white shadow-sm rounded w-[200px] h-[100px] p-2 mt-2">
             <p class="text-center">Up coming task</p>
             <div class="flex  items-center justify-center gap-1">
@@ -156,7 +156,7 @@ class="flex items-center justify-center rounded cursor-pointer hover:bg-gray-100
           <div class="mb-3">
             <label class="block text-sm">Role</label>
             <select v-model="newUser.role" class="w-full border px-2 py-1 rounded">
-              <option>User</option>
+              <option>Employee</option>
               <option>Admin</option>
             </select>
           </div>

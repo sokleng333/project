@@ -8,6 +8,7 @@ import AboutUs from '../components/Pages/AboutUs.vue'
 import ContactPage from "../components/Pages/ContactPage.vue";
 import LeaveRequest from '../components/LeaveRequest.vue'
 import Employee from '../components/Employee.vue'
+import Acc from '../components/Pages/Acc.vue'
 
 const routes=[
     {
@@ -60,6 +61,12 @@ const routes=[
         path:"/empdashboard",
         name:"empdashboard",
         component:Employee
+
+    },
+     {
+        path:"/account",
+        name:"Account",
+        component:Acc,
 
     }
 ]

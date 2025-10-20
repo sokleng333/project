@@ -28,7 +28,7 @@
           <router-link to="/leave" class="p-2 hover:bg-gray-200 rounded">Leave Request</router-link>
         </ul>
       </div>
-      <router-link to="/log in"><button class="text-red-500 hover:underline">Log out</button></router-link>
+      <router-link to="/login"><button class="text-red-500 hover:underline">Log out</button></router-link>
     
     </aside>
 
@@ -225,7 +225,7 @@
           <div class="mb-3">
             <label class="block text-sm">Role</label>
             <select v-model="newUser.role" class="w-full border px-2 py-1 rounded">
-              <option>User</option>
+              <option>Employee</option>
               <option>Admin</option>
             </select>
           </div>
