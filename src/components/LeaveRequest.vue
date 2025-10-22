@@ -20,14 +20,34 @@
       <div>
         <h1 class="text-xl font-bold mb-6">Dashboard</h1>
         <ul class="space-y-3 flex flex-col">
-          <router-link to="/dashboard" class="p-2 bg-blue-100 text-blue-700 rounded">Dashboard</router-link>
-         
-          <router-link to="/table" class="p-2 hover:bg-gray-200 rounded">Attendance</router-link>
+  <router-link 
+    to="/dashboard"
+    class="p-2 rounded hover:bg-gray-200"
+    exact-active-class="bg-blue-100 text-blue-700"
+  >
+    Dashboard
+  </router-link>
+  
+  <router-link 
+    to="/table"
+    class="p-2 rounded hover:bg-gray-200"
+    active-class="bg-blue-100 text-blue-700"
+  >
+    Attendance
+  </router-link>
 
-          <router-link to="/leave" class="p-2 hover:bg-gray-200 rounded">Leave Request</router-link>
-        </ul>
+  <router-link 
+    to="/leave"
+    class="p-2 rounded hover:bg-gray-200"
+    active-class="bg-blue-100 text-blue-700"
+  >
+    Leave Request
+  </router-link>
+</ul>
+
       </div>
-      <router-link to="/login"><button class="text-red-500 hover:underline">Log out</button></router-link>
+      <router-link to="/login"><button class="text-red-500 hover:underline"  active-class="bg-blue-100 text-blue-700"
+    exact-active-class="bg-blue-100 text-blue-700">Log out</button></router-link>
       
     </aside>
   <div class="p-6">

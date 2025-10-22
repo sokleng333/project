@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-auto bg-gray-100">
+  <div class="flex h-auto bg-gray-100 relative">
     <!-- Burger Menu (ONLY on sm & md, hidden on lg) -->
     <i 
       class="fa-solid fa-bars text-black text-2xl p-4 cursor-pointer block md:block lg:hidden"
@@ -21,16 +21,58 @@
       <div>
         <h1 class="text-xl font-bold mb-6">Dashboard</h1>
         <ul class="space-y-3 flex flex-col">
-          <router-link to="/dashboard" class="p-2 bg-blue-100 text-blue-700 rounded">Dashboard</router-link>
+          <router-link to="/dashboard" class="p-2 bg-blue-100 text-blue-700 rounded" active-class="bg-blue-100 text-blue-700"
+    exact-active-class="bg-blue-100 text-blue-700">Dashboard</router-link>
          
-          <router-link to="/table" class="p-2 hover:bg-gray-200 rounded">Attendance</router-link>
+          <router-link to="/table" class="p-2 hover:bg-gray-200 rounded" active-class="bg-blue-100 text-blue-700">Attendance</router-link>
+          <router-link to="/leave" class="p-2 hover:bg-gray-200 rounded"    exact-active-class="bg-blue-100 text-blue-700">Leave Request</router-link>
 
-          <router-link to="/leave" class="p-2 hover:bg-gray-200 rounded">Leave Request</router-link>
+         
         </ul>
       </div>
-      <router-link to="/login"><button class="text-red-500 hover:underline">Log out</button></router-link>
-    
-    </aside>
+        
+    <!-- Logout button -->
+     <!-- Logout button -->
+<button
+  @click="showLogoutModal = true"
+  class="text-red-500 hover:underline mt-6"
+>
+  Log out
+</button>
+
+<!-- Logout confirmation modal -->
+<div
+  v-if="showLogoutModal"
+  class="fixed inset-0 flex items-center justify-center bg-black/40 z-50"
+>
+  <div class="bg-white rounded-xl shadow-lg p-6 w-[300px] text-center">
+    <h2 class="text-lg font-semibold mb-3">Confirm Logout</h2>
+    <p class="text-gray-600 mb-6">Are you sure you want to log out?</p>
+
+    <div class="flex justify-center gap-4">
+      <button
+        @click="confirmLogout"
+        class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+      >
+        Yes
+      </button>
+      <button
+        @click="showLogoutModal = false"
+        class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300"
+      >
+        No
+      </button>
+    </div>
+  </div>
+</div>
+  
+<!-- <router-link to="/login"><button class="text-red-500 hover:underline">Log out</button></router-link>
+       -->
+      
+      <!-- Modal -->
+ 
+  
+    </aside>  
 
     <!-- Main Content -->
     <main class="flex-1 p-6 overflow-hidden">
@@ -395,5 +437,17 @@ const addUser = () => {
 
 const deleteUser = (id) => {
   userStore.users = userStore.users.filter((user) => user.id !== id);
+};
+
+
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const showLogoutModal = ref(false);
+
+const confirmLogout = () => {
+  showLogoutModal.value = false;
+  // optional: clear user data or tokens here
+  router.push("/login"); // navigate to Employee.vue page
 };
 </script>

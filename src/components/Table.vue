@@ -20,14 +20,64 @@
       <div>
         <h1 class="text-xl font-bold mb-6">Dashboard</h1>
         <ul class="space-y-3 flex flex-col">
-          <router-link to="/dashboard" class="p-2 bg-blue-100 text-blue-700 rounded">Dashboard</router-link>
-         
-          <router-link to="/table" class="p-2 hover:bg-gray-200 rounded">Attendance</router-link>
+  <router-link 
+    to="/dashboard"
+    class="p-2 rounded hover:bg-gray-200"
+    exact-active-class="bg-blue-100 text-blue-700"
+  >
+    Dashboard
+  </router-link>
+  
+  <router-link 
+    to="/table"
+    class="p-2 rounded hover:bg-gray-200"
+    active-class="bg-blue-100 text-blue-700"
+  >
+    Attendance
+  </router-link>
 
-          <router-link to="/leave" class="p-2 hover:bg-gray-200 rounded">Leave Request</router-link>
-        </ul>
+  <router-link 
+    to="/leave"
+    class="p-2 rounded hover:bg-gray-200"
+    active-class="bg-blue-100 text-blue-700"
+  >
+    Leave Request
+  </router-link>
+</ul>
+
       </div>
-      <router-link to="/login"><button class="text-red-500 hover:underline">Log out</button></router-link>
+      <button
+  @click="showLogoutModal = true"
+  class="text-red-500 hover:underline mt-6"
+>
+  Log out
+</button>
+      <!-- <router-link to="/login"><button class="text-red-500 hover:underline mt-6">Log out</button></router-link> -->
+            <div
+  v-if="showLogoutModal"
+  class="fixed inset-0 flex items-center justify-center bg-black/40 z-50"
+>
+  <div class="bg-white rounded-xl shadow-lg p-6 w-[300px] text-center">
+    <h2 class="text-lg font-semibold mb-3">Confirm Logout</h2>
+    <p class="text-gray-600 mb-6">Are you sure you want to log out?</p>
+
+    <div class="flex justify-center gap-4">
+       <button
+        @click="confirmLogout"
+        class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+      >
+        Yes
+      </button>
+    
+      <button
+        @click="showLogoutModal = false"
+        class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300"
+      >
+        No
+      </button>
+    </div>
+  </div>
+</div>
     
     </aside>
 
@@ -150,6 +200,19 @@ const filteredUsers = computed(() => {
     user.id.toString().includes(q)
   )
 })
+
+
+//
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const showLogoutModal = ref(false);
+
+const confirmLogout = () => {
+  showLogoutModal.value = false;
+  // optional: clear user data or tokens here
+  router.push("/login"); // navigate to Employee.vue page
+};
 </script>
 <style scoped>
 th,td{

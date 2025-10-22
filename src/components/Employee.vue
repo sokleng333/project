@@ -24,11 +24,51 @@
          
           <router-link to="/account" class="p-2 hover:bg-gray-200 rounded">Account</router-link>
 
-          <router-link to="/Task" class="p-2 hover:bg-gray-200 rounded">Task</router-link>
+         
         </ul>
       </div>
-      <router-link to="/login"><button class="text-red-500 hover:underline">Log out</button></router-link>
+        
+    <!-- Logout button -->
+     <!-- Logout button -->
+<button
+  @click="showLogoutModal = true"
+  class="text-red-500 hover:underline mt-6"
+>
+  Log out
+</button>
+
+<!-- Logout confirmation modal -->
+<div
+  v-if="showLogoutModal"
+  class="fixed inset-0 flex items-center justify-center bg-black/40 z-50"
+>
+  <div class="bg-white rounded-xl shadow-lg p-6 w-[300px] text-center">
+    <h2 class="text-lg font-semibold mb-3">Confirm Logout</h2>
+    <p class="text-gray-600 mb-6">Are you sure you want to log out?</p>
+
+    <div class="flex justify-center gap-4">
+      <button
+        @click="confirmLogout"
+        class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+      >
+        Yes
+      </button>
+      <button
+        @click="showLogoutModal = false"
+        class="bg-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300"
+      >
+        No
+      </button>
+    </div>
+  </div>
+</div>
+  
+<!-- <router-link to="/login"><button class="text-red-500 hover:underline">Log out</button></router-link>
+       -->
       
+      <!-- Modal -->
+ 
+  
     </aside>  
     <section class=" bg-gray-100 w-full p-2">
         <h1 class="text-3xl font-bold ">Good Morning <span class="text-blue-500">Monika!</span></h1>
@@ -463,6 +503,22 @@ const addUser = () => {
 const deleteUser = (id) => {
   userStore.users = userStore.users.filter((user) => user.id !== id);
 };
+
+
+
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const showLogoutModal = ref(false);
+
+const confirmLogout = () => {
+  showLogoutModal.value = false;
+  // optional: clear user data or tokens here
+  router.push("/login"); // navigate to Employee.vue page
+};
+
+//
+
 
 
 
